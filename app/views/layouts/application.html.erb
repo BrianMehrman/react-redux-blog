@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>My Portfolio</title>
+    <%= stylesheet_link_tag    'application', media: 'all' %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body>
+
+    <%= render 'layouts/navbar' %>
+
+    <%= yield %>
+
+    <% unless params[:js] == "broken" %>
+      <%= javascript_include_tag "application" %>
+    <% end %>
+  </body>
+</html>

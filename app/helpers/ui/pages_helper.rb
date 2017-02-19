@@ -1,0 +1,2 @@
+module Ui::PagesHelper
+end
