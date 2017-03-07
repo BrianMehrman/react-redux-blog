@@ -1,8 +1,11 @@
 // ./dispatcher/SmappAppDispatcher.js
+const SmallConstants = require('../constants/SmallConstants');
+const assign = require('object-assign');
+var Dispatcher = require('flux').Dispatcher;
 
-var PayloadSources = SmallConstants.PayloadSources;
+const PayloadSources = SmallConstants.PayloadSources;
 
-var SmallAppDispatcher = assign(new Dispatcher(), {
+const SmallAppDispatcher = assign(new Dispatcher(), {
 
   handleServerAction: function(action) {
     var payload = {
@@ -21,4 +24,3 @@ var SmallAppDispatcher = assign(new Dispatcher(), {
 });
 
 module.exports = SmallAppDispatcher;
-

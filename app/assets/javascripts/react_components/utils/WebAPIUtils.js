@@ -1,4 +1,5 @@
 // ./script/utils/WebAPIUtils.js
+const SmallConstants = require('../constants/SmallConstants');
 
 function _getErrors(res) {
   var errorMsgs = ["Something went wrong, please try again"];
@@ -56,4 +57,3 @@ module.exports = {
   },
 
 };
-

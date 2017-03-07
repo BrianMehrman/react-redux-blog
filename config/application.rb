@@ -18,7 +18,7 @@ module MyPortfolio
 
     config.assets.paths << Rails.root.join('vendor', 'assets', 'componets')
 
-    # config.browserify_rails.commandline_options = "-t [ babelify --presets [ es2015 react ] --plugins [ syntax-async-functions transform-regenerator ] ]"
+    # config.browserify_rails.commandline_options = "-t [ babelify --presets [ es2015 react stage-0 ] --plugins [ syntax-async-functions transform-regenerator ] ]"
 
     # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]

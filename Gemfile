@@ -11,7 +11,7 @@ gem 'font-awesome-sass'
 gem 'devise'
 gem 'cancancan'
 gem 'rolify'
-gem "browserify-rails"
+gem "react_on_rails"
 
 group :development do
   gem "rubocop", require: false
