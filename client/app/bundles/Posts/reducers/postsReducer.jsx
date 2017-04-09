@@ -1,5 +1,5 @@
 import { combineReducers } from 'redux';
-import { REQUEST_POSTS, RECEIVE_POSTS } from '../constants/postsConstants';
+import { REQUEST_POSTS, RECEIVE_POSTS, SELECT_POST, DESELECT_POST } from '../constants/postsConstants';
 
 const posts = (state={
   isFetching: false,
@@ -22,6 +22,14 @@ const posts = (state={
         posts: action.posts,
         page: action.page,
         lastUpdated: action.receivedAt
+      })
+    case SELECT_POST:
+      return Object.assign({}, state, {
+        selectedPost: action.post
+      })
+    case DESELECT_POST:
+      return Object.assign({}, state, {
+        selectedPost: undefined
       })
     default:
       return state

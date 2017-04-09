@@ -1,7 +1,7 @@
 import React, { PropTypes, Component } from 'react';
 import PostView from './PostView';
 import { bindActionCreators } from 'redux';
-import { fetchPosts } from '../../actions/postsActionCreators';
+import { fetchPosts, selectPost, deselectPost } from '../../actions/postsActionCreators';
 
 export default class PostsGrid extends Component {
   componentDidMount() {
@@ -10,8 +10,14 @@ export default class PostsGrid extends Component {
   }
 
   setPost(post) {
+    const { dispatch } = this.props;
     console.log(`setting post: ${post.title}`);
-    this.setState({ selectedPost: post });
+    dispatch(selectPost(post));
+  }
+
+  unsetPost() {
+    const { dispatch } = this.props;
+    dispatch(deselectPost());
   }
 
   post(post) {
@@ -59,7 +65,7 @@ export default class PostsGrid extends Component {
               className="btn btn-primary"
               data-dismiss="modal"
               aria-label="Close"
-              onClick={()=> this.setState({selectedPost: undefined})}
+              onClick={() => {this.unsetPost()}}
             >
               <span aria-hidden="true">Back</span>
             </button>
