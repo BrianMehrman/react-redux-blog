@@ -1,3 +1,5 @@
+import React from 'react';
+
 class PostView extends React.Component {
   constructor(props) {
     super(props);
@@ -34,3 +36,5 @@ class PostView extends React.Component {
     )
   }
 }
+
+export default PostView;

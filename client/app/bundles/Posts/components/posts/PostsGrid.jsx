@@ -1,23 +1,16 @@
-class PostsGrid extends React.Component {
+import React, { PropTypes, Component } from 'react';
+import PostView from './PostView';
+import { bindActionCreators } from 'redux';
+import { fetchPosts } from '../../actions/postsActionCreators';
 
-  constructor(props) {
-    super(props);
-
-    this.state =  {
-      posts: []
-    };
-  }
-
+export default class PostsGrid extends Component {
   componentDidMount() {
-    $.get('/posts?limit=10').then((response) => {
-      this.setState({
-        posts: response,
-        selectedPost: undefined
-      });
-    });
+    const { dispatch, page } = this.props;
+    dispatch(fetchPosts(page));
   }
 
   setPost(post) {
+    console.log(`setting post: ${post.title}`);
     this.setState({ selectedPost: post });
   }
 
@@ -44,10 +37,11 @@ class PostsGrid extends React.Component {
   }
 
   posts() {
+    const { posts } = this.props;
     return (
       <div className="PostsGrid-Posts container">
         {
-          this.state.posts.map((p) => {
+          posts.map((p) => {
             return this.post(p);
           })
         }
@@ -82,11 +76,18 @@ class PostsGrid extends React.Component {
   }
 
   render() {
-    const { selectedPost } = this.state;
+    const { selectedPost } = this.props;
     return (
       <div className="PostsGrid-container">
         { selectedPost ? this.postDetails(selectedPost) : this.posts() }
       </div>
     )
   }
-}
+};
+
+PostsGrid.propTypes = {
+  posts: PropTypes.array,
+  page: PropTypes.number,
+  selectedPost: PropTypes.object,
+  dispatch: PropTypes.func.isRequired
+};

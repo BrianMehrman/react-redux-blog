@@ -23,6 +23,7 @@ end
 
 group :development, :test do
   gem 'pry'
+  gem 'foreman'
   gem 'requirejs-rails'
   gem 'metric_fu'
   gem 'simplecov', require: false
@@ -37,7 +38,6 @@ gem 'bootstrap-sass', '~>3.3.7'
 gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.1.0'
-gem 'therubyracer', platforms: :ruby
 gem 'react-rails', '~> 1.6.0'
 gem 'jquery-rails'
 gem 'jbuilder', '~> 2.0'
@@ -46,6 +46,7 @@ gem 'paper_trail', '~> 4.0.0.beta'
 # gem 'paperclip'
 gem 'rmagick'
 gem 'carrierwave'
+gem 'will_paginate'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -71,3 +72,5 @@ group :test do
   gem 'jasmine'
   gem 'guard-jasmine', :git => 'https://github.com/guard/guard-jasmine', :branch => 'jasmine-2'
 end
+
+gem 'mini_racer', platforms: :ruby

@@ -2,7 +2,7 @@ class PostsController < ApplicationController
   load_and_authorize_resource
 
   def index
-    render json: filtered_posts
+    render json: paginated_posts
   end
 
   def show
@@ -35,12 +35,16 @@ class PostsController < ApplicationController
 
   private
 
-  def filtered_posts
-    limit > 0 ? @posts[0..limit-1] : @posts
+  def paginated_posts
+    @posts.paginate(page: page, per_page: per_page)
   end
 
-  def limit
-    params.permit(:limit)[:limit]&.to_i
+  def page
+    params.permit(:page)[:page] || 1
+  end
+
+  def per_page
+    params.permit(:per_page)[:per_page] || 10
   end
 
   def post_params
