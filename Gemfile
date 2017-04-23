@@ -19,10 +19,12 @@ group :development do
   gem "binding_of_caller"
   # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'web-console', '~> 2.0'
+  gem 'annotate'
 end
 
 group :development, :test do
   gem 'pry'
+  gem 'pry-remote'
   gem 'foreman'
   gem 'requirejs-rails'
   gem 'metric_fu'

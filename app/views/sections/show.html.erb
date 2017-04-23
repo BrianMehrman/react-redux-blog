@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Body:</strong>
+  <%= @section.body %>
+</p>
+
+<p>
+  <strong>Content type:</strong>
+  <%= @section.content_type %>
+</p>
+
+<p>
+  <strong>Post:</strong>
+  <%= @section.post_id %>
+</p>
+
+<%= link_to 'Edit', edit_section_path(@section) %> |
+<%= link_to 'Back', sections_path %>

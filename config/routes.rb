@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :sections
+
   get 'hello_world', to: 'hello_world#index'
   namespace :ui do
     get 'pages/index'
@@ -14,8 +16,9 @@ Rails.application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  root 'ui/pages#index'
+  root controller: 'ui/pages', action: 'index'
 
+  get '*', controller: 'ui/pages', action: 'index'
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

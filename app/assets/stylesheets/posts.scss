@@ -10,7 +10,7 @@ $accent: darken(#428bca, 15%);
           border-radiud: $radius;
 }
 
-.PostsGrid-Post {
+.PostsGrid {
   @include border-radius(5px);
   border: 1px $accent solid;
   margin: 1em;

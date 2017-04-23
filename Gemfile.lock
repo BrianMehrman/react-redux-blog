@@ -54,6 +54,9 @@ GEM
       ice_nine (~> 0.11.0)
       memoizable (~> 0.4.0)
     addressable (2.4.0)
+    annotate (2.7.1)
+      activerecord (>= 3.2, < 6.0)
+      rake (>= 10.4, < 12.0)
     arel (6.0.3)
     arrayfields (4.9.2)
     ast (2.2.0)
@@ -297,6 +300,9 @@ GEM
       coderay (~> 1.1.0)
       method_source (~> 0.8.1)
       slop (~> 3.4)
+    pry-remote (0.1.8)
+      pry (~> 0.9)
+      slop (~> 3.0)
     rack (1.6.4)
     rack-test (0.6.3)
       rack (>= 1.0)
@@ -477,6 +483,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  annotate
   better_errors
   binding_of_caller
   bootstrap-sass (~> 3.3.7)
@@ -508,6 +515,7 @@ DEPENDENCIES
   paper_trail (~> 4.0.0.beta)
   pg
   pry
+  pry-remote
   railroady
   rails (= 4.2.0)
   react-rails (~> 1.6.0)
@@ -531,4 +539,4 @@ DEPENDENCIES
   will_paginate
 
 BUNDLED WITH
-   1.11.2
+   1.14.6
