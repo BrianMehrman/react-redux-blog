@@ -3,6 +3,15 @@ import { Link } from 'react-router-dom';
 import { deselectPost } from '../../actions/postsActionCreators';
 
 export default class Preview extends Component {
+  componentDidMount() {
+    // const { id } = this.props.post;
+  debugger
+    // $.get(`/posts/${id}`).then((response) => {
+    //   this.setState({
+    //     post: response
+    //   });
+    // });
+  }
 
   unsetPost() {
     const { dispatch } = this.props;

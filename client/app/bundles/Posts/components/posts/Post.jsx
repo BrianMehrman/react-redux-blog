@@ -1,12 +1,20 @@
 import React, { PropTypes, Component } from 'react';
 import { Link } from 'react-router-dom';
+import { fetchPost } from '../../actions/postsActionCreators';
 
 class Post extends Component {
   componentDidMount() {
-    const { id } = this.props.post;
+    const { post, match, dispatch } = this.props;
+    const { params } = match;
 
+    if(post) dispatch(fetchPost(post.id));
+    else if(params.id) dispatch(fetchPost(params.id));
+  }
+
+  getPost(id) {
+    const _this = this;
     $.get(`/posts/${id}`).then((response) => {
-      this.setState({
+      _this.setProps({
         post: response
       });
     });
@@ -18,10 +26,10 @@ class Post extends Component {
 
     return (
       <div className="row">
-          <div className="col-md-12">
-            <p>text</p>
-            <img src={featureImgSrc} />
-          </div>
+        <div className="col-md-12">
+          <p>text</p>
+          <img src={featureImgSrc} />
+        </div>
       </div>
     )
   }
@@ -29,9 +37,9 @@ class Post extends Component {
   renderSection(section) {
     return (
       <div className="row">
-          <div className="col-md-8 md-offset-2">
-            <p>section.body</p>
-          </div>
+        <div className="col-md-8 md-offset-2">
+          <p>section.body</p>
+        </div>
       </div>
     )
   }
@@ -54,7 +62,8 @@ class Post extends Component {
   }
 
   render() {
-    const { post } = this.props
+    const { post } = this.props;
+    debugger
     return (
       <div className="Post-container container">
         <div className="row">
@@ -64,9 +73,9 @@ class Post extends Component {
         </div>
         <div className="row">
           <div className="col-xs-6 col-md-4">Description:</div>
-          <div className="col-xs-12 col-md-8">{post.description}</div>
+          <div className="col-xs-12 col-md-8">{post && post.title}</div>
         </div>
-        { this.renderStream() }
+        { post && this.renderStream() }
       </div>
     )
   }
